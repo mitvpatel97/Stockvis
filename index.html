@@ -1,0 +1,186 @@
+<html>
+
+<head>
+    <title>Stockvis</title>
+    <link rel="icon" href="assets/cw_noback.png" type='image/x-icon'>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122864868-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122864868-3');
+    </script>
+
+    <script src='https://d3js.org/d3.v4.min.js'></script> 
+    <script src="./src/stockData.json"></script>
+    <script src="./src/bollData.json"></script>
+    <script src="./src/stochData.json"></script>
+    <!-- version 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"
+        integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/stylesheets/application.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <button class="overview-button">Overview</button>
+            <div class="overview-description hidden">
+                Stockvis allows you to make more informed investing decisions by displaying trends in technical indicators in a
+                dynamic,
+                visually-appealing way. Stockvis renders historical financial data for companies according to their industries which
+                allows you to examine technical indicators such as short and long term moving price averages, bollinger bands, and
+                stochastic oscillators. </br></br>
+                Select the indicator you would like to view: short and long term MA's, bollinger bands, or stochastic oscillators.
+                </br></br>
+                Click "More Info!" to learn how to interpret results.
+            </div>
+
+
+        <div class="handles">
+            <a class="github-link" href="https://github.com/mitvpatel97" target="_blank">
+                <img class="icon" src="assets/GitHub-Mark-120px-plus.png">
+            </a>
+            <a class="linkedin-link" href="http://www.linkedin.com/in/mit-patel-869730148" target="_blank">
+                <img class="icon" src="assets/linkedin.jpg">
+            </a>
+            <a class="envelope-link" href="mailto:mitvpatel97@gmail.com">
+                <i class="fas fa-envelope-square"></i>
+            </a>
+        </div>  
+    </div>
+
+    <div class="title-bar">
+        
+
+        <div class="holder-holder">
+
+            <div class="spinner-holder">
+                <div class="spinner">
+                    <div class="box-right"></div>
+                    <div class="box-top"></div>
+                    <p class="app-header header-top">
+                        <img class="logo-img" src="assets/StockVis-logo.png">
+
+                    </p>
+                    <div class="box-bottom"></div>
+                    <p class="app-header header-bottom"></p>
+                    <div class="box-left"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!-- 33333333333333333 -->
+    <div><strong>Technical Analysis of Stocks</strong></div>
+    <div class="inputs">
+        
+        Stock Ticker:
+        <input class="input-sma" type="text" name="tick" value="" placeholder="SYM" autofocus autocomplete="off">
+        <!-- <input class="input-sma-weeks" type="text" name="weeks" value="" placeholder="weeks"> -->
+        <button class="button-sma">SMA</button>
+        <button class="button-boll">Bollinger</button>
+        <button class="button-stoch">Stochastic</button>
+        <button class="run-all">Run All</button>
+        <button class="clear">Clear All</button>
+        <button class="sample-tickers">View Common Tickers 
+
+        
+    <div class="tornado-holder">
+        <div class="tornado hidden">
+            <div class="tornado-row-1 rotate">
+                <div class="tornado-cell-1 cell">AAPL</div>
+                <div class="tornado-cell-2 cell">MSFT</div>
+                <div class="tornado-cell-3 cell">AMZN</div>
+                <div class="tornado-cell-4 cell">GOOGL</div>
+            </div>
+            <div class="tornado-row-2 rotate-reverse">
+                <div class="tornado-cell-1 cell">SPOT</div>
+                <div class="tornado-cell-2 cell">IBM</div>
+                <div class="tornado-cell-3 cell">SPY</div>
+                <div class="tornado-cell-4 cell">FB</div>
+            </div>
+            <div class="tornado-row-3 rotate">
+                <div class="tornado-cell-1 cell">NVDA</div>
+                <div class="tornado-cell-2 cell">JNJ</div>
+                <div class="tornado-cell-3 cell">DELL</div>
+                <div class="tornado-cell-4 cell">TWTR</div>
+            </div>
+        </div>
+    </div>
+
+    </button>
+
+    </div>
+    <div class="main">
+
+
+        <div class="content">
+            <div class="tooltip"></div>
+            <div class="section">
+                <p class="svg-title">Simple Moving Averages</p>
+                <svg class="svg-smas"></svg>
+                <button class="smas-info-button">More Info!</button>
+                <p class="description-smas hidden">
+                    <strong>Blue-Orange line: 21-day MA</strong><br>
+                    <strong>Black line: 49-day MA</strong><br>
+                    Short term and long term price moving averages (MA) are well-established means of evaluating a company's performance. If
+                    a short term MA is crossing through a long term one, then it is a buy signal (golden cross). If the opposite is
+                    occurring, then it is a sell signal (dead cross).
+                </p>
+            </div>
+            <div class="section">
+                <p class="rainbow svg-title">Bollinger Bands</p>
+                <svg class="svg-bolls"></svg>
+                <button class="bbands-info-button">More Info!</button>
+                <p class="description-bbands hidden">
+                    <strong>Green / Pink line: 3 SDs +/- MA</strong><br>
+                    <strong>Black line: 35-day MA</strong><br>
+                    Bollinger bands are also highly instrumental in evaluating securities. When viewing them, there is a middle line that
+                    indicates a moving average (MA) and two lines above and below, showing a certain number of standard deviations (SD) above and below the moving
+                    average, respectively. When the MA line crosses the upper one, the resistance level, or
+                    the lower one, the support level, there is a major price event occurring.  Also, when the bands squeeze or expand apart, there is a 
+                    high chance of a change in price volatility.
+                </p>
+            </div>
+            <div class="section">
+                <p class="rainbow svg-title">Stochastic Oscillator</p>
+                <svg class="svg-stochs"></svg>
+                <button class="stochs-info-button">More Info!</button>
+                <p class="description-stochs hidden">
+                    <strong>Blue line: Slow K = smoothed %K</strong> <br>
+                    <strong>Dark Blue line: Slow D = MA of Slow K</strong><br>
+                    Stochastic oscillators are useful for gauging stocks since they show the closing price of a stock relative to its price
+                    range over a given time period. A high ratio of Slow K / Slow D generates a buy signal and the opposite generates a sell signal.
+                    The value of %K itself is also used to determine its intrinsic value. A value over 80 can be interpreted as overbought and a 
+                    value under 20 as oversold. 
+                </p>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="handles">
+        <a class="github-link" href="https://github.com/mitvpatel97" target="_blank">
+            <img class="icon" src="assets/GitHub-Mark-120px-plus.png">
+        </a>
+        <a class="linkedin-link" href="http://www.linkedin.com/in/mit-patel-869730148" target="_blank">
+            <img class="icon" src="assets/linkedin.jpg">
+        </a>
+        <a class="envelope-link" href="mailto:mitvpatel97@gmail.com">
+            <i class="fas fa-envelope-square"></i>
+        </a>
+    </div>
+
+
+
+<!-- ##################################################################### -->
+    <script type="module" src="src/index.js"></script>
+    <script type="text/javascript" src="src/bollinger.js"></script>
+    
+</body>
+
+</html>

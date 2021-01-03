@@ -1,0 +1,549 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+    list-style: none;
+}
+
+* {
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}
+body {
+    /* background: #f8f8f8; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(0deg, rgb(243, 255, 255), transparent);
+}
+.app-header {
+    /* color: white; */
+    font-size: 72px;
+    font-weight: 800;
+    text-align: center;
+}
+svg {
+    min-height: 500px;
+    min-width: 600; 
+    margin: 20px;
+   
+    /* background: cornflowerblue; */
+}
+
+rect {
+    margin: 5px;
+}
+
+rect:hover {
+    fill: red;
+    transition: fill .3s ease-in;
+}
+
+line {
+    stroke: black;
+    stroke-width: 2;
+}
+
+line:hover {
+    stroke: cyan;
+}
+.flashing {
+    animation-name: flashing;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes flashing {
+     from {
+        stroke: red;
+    }
+    to {
+        stroke: green;
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.svg-smas {
+    /* margin: 10px; */
+}
+
+.tooltip {
+    height: 19px;
+    width: 82px;
+    position: absolute;
+
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+    text-align: center;
+}
+.icon {
+    height: 25px;
+    width: 25px;
+}
+
+.button-sma {
+    height: 36px;
+    width: 72px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.button-boll {
+    height: 36px;
+    width: 77px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.button-stoch {
+    height: 36px;
+    width: 87px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.button-sma:hover, .button-boll:hover, .button-stoch:hover {
+    background: black;
+    outline: white;
+    color:white;
+}
+.input-sma:focus, .input-sma-weeks:focus {
+    outline: none;
+}
+.input-sma:focus {
+    color: blue;
+    opacity: .9;
+}
+
+.input-sma {
+    height: 36px;
+    width: 103px;
+    border-radius: 5%;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 800;
+}
+
+.input-sma-weeks {
+    height: 36px;
+    width: 72px;
+    border-radius: 5%;
+    font-size: 14px;
+}
+.inputs {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    /* margin-left: -50%; */
+    align-items: center;
+    font-size: 25px;
+    font-weight: 800;
+}
+.github-link {
+    display: inline-block;
+}
+
+.inputs > * {
+    margin: 10px;
+}
+
+.draw {
+    animation: draw 10s infinite;
+    /* animation-fill-mode: forwards ; */
+    animation-direction: reverse;
+    animation-timing-function: ease-out;
+    /* stroke-dashoffset: 2000; */
+    stroke-dasharray: 10000;
+
+}
+
+@keyframes draw {
+    0% { 
+        stroke-dashoffset: 0;
+    }
+    100% { 
+        stroke-dashoffset: 10000;
+    }
+}
+
+.svg-title {
+    font-size: 36px;
+    font-weight: 800;
+    text-align: center;
+}
+.section {
+    min-height: 700px;
+    width: 700px;
+    background: rgb(250, 250, 250, .7);
+    border: 2px solid rgb(15, 15, 15);
+    border-radius: 7%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    
+}
+.hidden {
+    display: none;
+}
+
+
+.spinner-holder {
+    perspective: 1000px;
+    margin-top: 50px;
+    height: 100px;
+    width: 66%;
+    /* background: yellow; */
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* background: red; */
+    height: 100px;
+    width: 100px;
+    margin: auto;
+}
+.spinning {
+    transform-style: preserve-3d;
+    animation-name: spin;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.spinner:hover {
+    /* color: white; */
+}
+/* 
+.spinner:hover {
+    transition: transform 3s ;
+    transform: rotateY(-360deg) rotateZ(360deg);
+} */
+
+@keyframes spin {
+    from {transform: rotateY(-360deg) rotateZ(360deg) }
+    to {transform: none;}
+}
+
+.header-top {
+    position: absolute;
+    /* background: rgba(50, 179, 82, 0.5); */
+    margin: 0;
+    transform: translateZ(60px);
+    width: 300px;
+    background: white;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-bottom {
+    position: absolute;
+    /* background: rgba(120, 20, 240, .5); */
+    margin: 0;
+    transform: translateZ(-60px);
+    height: 84px;
+    width: 300px;
+
+}
+.box-top {
+    height: 84px;
+    width: 122px;
+    position: absolute;
+    /* background: rgba(80, 160, 250, .5); */
+    /* background: rgba(15, 15, 15, .5); */
+    margin: 0;
+    transform: rotateY(90deg) translateX(0px) translateZ(150px);
+}
+.box-bottom {
+    height: 84px;
+    width: 120px;
+    position: absolute;
+    /* background: rgba(161, 185, 22, 0.5); */
+    /* background: rgba(15, 15, 15, .5); */
+    margin: 0;
+    transform: rotateY(-90deg) translateX(0px) translateZ(150px);
+}
+
+.box-right {
+    position: absolute;
+    height: 120px;
+    width: 300px;
+    /* background: rgba(213, 168, 46, 0.5); */
+    background: rgba(15, 15, 15, .5);
+    transform: rotateX(90deg) translateZ(60px);
+}
+.box-left {
+    position: absolute;
+    height: 120px;
+    width: 300px;
+    /* background: rgba(249, 30, 66, 0.5); */
+    background: rgba(15, 15, 15, .5);
+
+    transform: rotateX(90deg) translateZ(-23px);
+}
+/* 
+.header-top:hover {
+    color: white;
+    transform: rotateY(90deg);
+    transition: transform 3s;
+}
+
+.header-bottom:hover {
+    color: white;
+    transform: rotateY(-90deg);
+    transition: transform 3s;
+} */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    background: rgb(15, 15, 15);
+}
+
+[class*="description"] {
+    margin: 20px;
+    font-size: 18px;
+}
+
+[class*="info-button"] {
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.tornado {
+    color: white;
+    /* left: -28px; */
+}
+.tornado-holder {
+    margin-left: 20%;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    perspective: 800px;
+    position: absolute;
+    bottom: 30px;
+    /* background: white; */
+}
+[class*="tornado-row"] {
+    transform-style: preserve-3d;
+    display: flex;
+    perspective: 800px;
+    position: relative;
+    /* flex-direction: row;  */
+    height: 50px;
+}
+[class*="tornado-cell"] {
+    position: absolute;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    background: blue;
+    opacity: .9;
+    backface-visibility: visible;
+    border-radius: 10px;
+}
+[class*="tornado-cell"]:hover {
+    background: yellow;
+    color: black;
+    cursor: pointer;
+}
+
+.tornado-row-1 {
+}
+.tornado-row-2 {
+    transform: translateY(40px)
+}
+.tornado-row-3 {
+    transform: translateY(80px)
+}
+
+.tornado-cell-1 {
+    transform: rotateY(90deg) translateX(70px)
+}
+.tornado-cell-2 {
+    transform: rotateY(180deg) translateX(70px)
+
+}
+.tornado-cell-3 {
+    transform: rotateY(270deg) translateX(70px)
+
+}
+.tornado-cell-4 {
+    transform: translateX(70px)
+}
+
+.rotate {
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {transform: rotateY(-360deg)}
+    to {transform: none;}
+}
+
+.rotate-reverse {
+    animation-name: rotate-reverse;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate-reverse {
+    from {transform: rotateY(360deg)}
+    to {transform: none;}
+}
+
+.clear {
+    height: 36px;
+    width: 100px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+}
+button {
+    outline: none;
+}
+
+.sample-tickers {
+    height: 36px;
+    width: 125px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    background: none;
+    border: none;
+    position: relative;
+}
+strong {
+    font-weight: 800;
+}
+.handles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 5px;
+}
+.handles > * {
+    margin: 5px 10px;
+}
+
+.fas {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+.title-bar {
+    display: flex;
+    width: 100%;
+}
+.holder-holder {
+    margin: auto;
+}
+.overview-button {
+    height: 36px;
+    width: 87px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    /* border-radius: 10px; */
+    border:none;
+    background: rgb(15,15,15);
+    color:gray;
+}
+
+
+.overview-button:hover {
+    color: white;
+}
+
+.overview-description {
+    position: absolute;
+    background: white;
+    top: 25px;
+    left: 20px;
+    width: 50%;
+    z-index: 1;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.run-all {
+    height: 36px;
+    width: 100px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.logo-img {
+    height: 56px;
+}
+.envelope-link {
+    padding-left: 1px;
+    width: 30px;
+    height: 30px;
+    padding-top: 1px;
+}
+    .fa-envelope-square {
+        font-size: 29px;
+    }
